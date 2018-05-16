@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="utf-8">
+	<title> Responsive Sidebar </title>
+  <script>
+  var submenu = false;																													//initialize variables
+  var collapsedMenu = false;
+
+	function adjustCollapsedMenu() {																							//function for show/hide collapsed menu
+		var collapsedMenuElement = document.getElementsByClassName('collapsed-menu');
+		if (window.innerWidth < 768 && collapsedMenu == true) {											//if window width small and collapsedMenu true
+			collapsedMenuElement[0].classList.remove('d-none');												//show collapsed menu
+		}
+		else {
+			collapsedMenu = false;																										//reset collapsed menu
+			collapsedMenuElement[0].classList.add('d-none');													//hide collapsed menu
+		}
+	}
+
+	function logout() {
+		alert("You have been logged out.");
+	}
+
+  function selectTab(tab) {
+		var elements = document.querySelectorAll("#home, #desktops, #laptops, #contact, #home-collapsed, #desktops-collapsed, #laptops-collapsed, #contact-collapsed");
+		var elements = [...elements];
+		elements.forEach(element => element.classList.remove('active'));						//remove active class from element
+
+		if (tab == 'home') {																												//if selected tab is home
+			document.getElementById('home').classList.add('active');									//show home
+			document.getElementById('home-collapsed').classList.add('active');
+		}
+		else if (tab == 'desktops') {																								//if selected tab is desktops
+			document.getElementById('desktops').classList.add('active');							//show dekstops
+			document.getElementById('desktops-collapsed').classList.add('active');
+		}
+		else if (tab == 'laptops') {																								//if selected tab is laptops
+			document.getElementById('laptops').classList.add('active');								//show laptops
+			document.getElementById('laptops-collapsed').classList.add('active');
+		}
+		else if (tab == 'contact') {																								//if selected tab is contact
+			document.getElementById('contact').classList.add('active');								//show contact
+			document.getElementById('contact-collapsed').classList.add('active');
+		}
+  }
+
+  function toggleSubmenu() {
+    submenu = !submenu;																													//toggle submenu variable
+    var submenuItems = document.getElementsByClassName('submenu');
+    submenuItems = [...submenuItems];
+    if (submenu == true) {																											//if submenu true
+      submenuItems.forEach(element => element.classList.remove('d-none'));			//show submenu links
+      document.getElementById('arrow').innerHTML = "↓";													//show arrow down
+    }
+    else {
+      submenuItems.forEach(element => element.classList.add('d-none'));					//hide submenu links
+			document.getElementById('arrow').innerHTML = "←";													//show arrow left
+    }
+  }
+
+	function toggleExpand() {
+		collapsedMenu = !collapsedMenu;																							//toggle collapsedMenu variable
+		adjustCollapsedMenu();
+	}
+
+	window.onresize = function() {																								//on window resize
+		adjustCollapsedMenu();
+	}
+  </script>
+</head>
+<body>
+  <div class="d-flex">
+  	<div class="sticky-top sidebar-container">
+  		<ul class="nav flex-column sidebar">
+  			<li class="nav-item first-nav-item active" id="home">
+  				<a class="nav-link" href="javascript:void(0)" onclick="selectTab('home')"> Home </a>
+  			</li>
+  			<li class="nav-item">
+  				<a class="nav-link" href="javascript:void(0)" onclick="toggleSubmenu()">
+  					Products
+  					<span class="float-right" id="arrow"> ← </span>
+  				</a>
+  			</li>
+  			<li class="nav-item submenu d-none" id="desktops">
+  				<a class="nav-link" href="javascript:void(0)"  onclick="selectTab('desktops')"> Desktops </a>
+  			</li>
+  			<li class="nav-item submenu d-none" id="laptops">
+  				<a class="nav-link" href="javascript:void(0)" onclick="selectTab('laptops')"> Laptops </a>
+  			</li>
+  			<li class="nav-item" id="contact">
+  				<a class="nav-link" href="javascript:void(0)" onclick="selectTab('contact')"> Contact </a>
+  			</li>
+  		</ul>
+  	</div>
+  	<div class="rest-container">
+  		<div class="top-navbar-container">
+  			<div class="d-flex justify-content-between">
+  				<div class="welcome-message"> Welcome </div>
+  				<span class="logout-icon desktop-view ml-auto" onclick="logout()"></span>
+  				<div class="mobile-view">
+  					<button class="navbar-toggler" onclick="toggleExpand()"> <span class="navbar-toggler-icon"></span> </button>
+  				</div>
+  			</div>
+  			<ul class="nav flex-column collapsed-menu d-none">
+  				<li class="nav-item active" id="home-collapsed">
+  					<a class="nav-link collapsed-link" href="javascript:void(0)"  onclick="selectTab('home')"> Home </a>
+  				</li>
+  				<li class="nav-item">
+  					<a class="nav-link collapsed-link" href="javascript:void(0)" onclick="toggleSubmenu()"> Products </a>
+  				</li>
+  				<li class="nav-item submenu d-none" id="desktops-collapsed">
+  					<a class="nav-link collapsed-link" href="javascript:void(0)" onclick="selectTab('desktops')"> Desktops </a>
+  				</li>
+  				<li class="nav-item submenu d-none" id="laptops-collapsed">
+  					<a class="nav-link collapsed-link" href="javascript:void(0)" onclick="selectTab('laptops')"> Laptops </a>
+  				</li>
+  				<li class="nav-item" id="contact-collapsed">
+  					<a class="nav-link collapsed-link" href="javascript:void(0)" onclick="selectTab('contact')"> Contact </a>
+  				</li>
+  				<li class="nav-item" id="contact-collapsed">
+  					<a class="nav-link collapsed-link text-danger" href="javascript:void(0)" onclick="logout()"> Log out </a>
+  				</li>
+  			</ul>
+  		</div>
+  	</div>
+  </div>
+</body>
+
+<script>
+var sidebarContainer = document.getElementsByClassName('sidebar-container');
+sidebarContainer[0].style.height = window.innerHeight + "px";										//set sidebar height equal with window height
+</script>
+
+</html>

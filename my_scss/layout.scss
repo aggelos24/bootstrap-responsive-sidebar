@@ -1,0 +1,126 @@
+.sidebar-container {
+	width: 250px;
+	background-color: steelblue;
+	padding-top: 50px;
+}
+
+.rest-container {
+	width: calc(100% - 250px);
+}
+
+.top-navbar-container {
+	height: 50px;
+	border-bottom: 1px solid black;
+	padding: 10px;
+}
+
+.nav {
+	letter-spacing: 1px;
+	font-size: 1.2em;
+}
+
+.sidebar .nav-item {
+	border-bottom: 1px solid $light-blue;
+}
+
+.sidebar .nav-item:hover {
+	background-color: $dark-blue;
+}
+
+.first-nav-item {
+	border-top: 1px solid $light-blue;
+}
+
+.sidebar a {
+	color: $grey;
+	font-weight: 700;
+}
+
+.sidebar a:hover {
+	color: white;
+}
+
+.active {
+	background-color: white;
+	a, a:hover {
+		color: $blue;
+	}
+}
+
+.active:hover {
+	background-color: white !important;
+}
+
+.submenu > .nav-link {
+	font-size: 0.8em;
+	padding: 5px 16px 5px 20px;
+}
+
+.navbar-toggler {
+	outline: 0 !important;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+}
+
+.navbar-toggler-icon {
+	background-image: url("assets/toggler.png");
+}
+
+.logout-icon {
+	background-image: url("assets/logout.png");
+	width: 30px;
+	height: 30px;
+}
+
+.collapsed-link {
+	color: $dark-grey;
+}
+
+.collapsed-link:hover {
+	color: $blue;
+}
+
+.active > .collapsed-link, .active > .collapsed-link:hover {
+	color: black;
+}
+
+.welcome-message {
+	font-size: 1.6em;
+	height: 30px;
+}
+
+.desktop-view {
+	display: block;
+}
+
+.mobile-view {
+	display: none;
+}
+
+
+@media screen and (max-width: 767px) {
+	.sidebar-container {
+		display: none;
+	}
+
+	.rest-container {
+		width: 100%;
+	}
+
+	.top-navbar-container {
+		height: 100%;
+	}
+
+	.nav {
+		letter-spacing: 0;
+	}
+
+	.mobile-view {
+		display: block;
+	}
+
+	.desktop-view {
+		display: none;
+	}
+}
