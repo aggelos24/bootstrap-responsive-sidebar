@@ -19,16 +19,16 @@
 	font-size: 1.2em;
 }
 
+.sidebar .nav-item:first-child {
+	border-top: 1px solid $light-blue;
+}
+
 .sidebar .nav-item {
 	border-bottom: 1px solid $light-blue;
 }
 
 .sidebar .nav-item:hover {
 	background-color: $dark-blue;
-}
-
-.first-nav-item {
-	border-top: 1px solid $light-blue;
 }
 
 .sidebar a {
@@ -96,6 +96,50 @@
 
 .mobile-view {
 	display: none;
+}
+
+.visible {
+	max-height: 500px;
+	opacity: 1;
+	visibility: visible;
+}
+
+.invisible {
+	max-height: 0px;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.show-animation {
+	animation-name: show;
+	animation-duration: 0.5s;
+	transition-timing-function: ease;
+}
+
+.hide-animation {
+	animation-name: show;
+	animation-direction: reverse;
+	animation-duration: 0.5s;
+	transition-timing-function: ease;
+}
+
+//animation
+@keyframes show {
+	0% {
+		max-height: 0px;
+		opacity: 0;
+		visibility: hidden;
+	}
+	30% {
+		max-height: 500px;
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		max-height: 500px;
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 
