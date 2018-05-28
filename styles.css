@@ -3070,13 +3070,17 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #dee2e6 !important; } }
+.show-animation, .hide-animation, .arrow-down-animation, .arrow-left-animation {
+  animation-duration: 0.5s;
+  transition-timing-function: ease; }
+
 .sidebar-container {
-  width: 250px;
+  width: 220px;
   background-color: steelblue;
   padding-top: 50px; }
 
 .rest-container {
-  width: calc(100% - 250px); }
+  width: calc(100% - 220px); }
 
 .top-navbar-container {
   height: 50px;
@@ -3087,14 +3091,14 @@ a.text-dark:hover, a.text-dark:focus {
   letter-spacing: 1px;
   font-size: 1.2em; }
 
+.sidebar .nav-item:first-child {
+  border-top: 1px solid #99ceff; }
+
 .sidebar .nav-item {
   border-bottom: 1px solid #99ceff; }
 
 .sidebar .nav-item:hover {
   background-color: #006699; }
-
-.first-nav-item {
-  border-top: 1px solid #99ceff; }
 
 .sidebar a {
   color: #d9d9d9;
@@ -3140,7 +3144,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .welcome-message {
   font-size: 1.6em;
-  height: 30px; }
+  height: 30px;
+  line-height: 1.3; }
 
 .desktop-view {
   display: block; }
@@ -3148,6 +3153,47 @@ a.text-dark:hover, a.text-dark:focus {
 .mobile-view {
   display: none; }
 
+.invisible {
+  max-height: 0px;
+  opacity: 0;
+  visibility: hidden;
+  border: 0 !important; }
+
+.arrow-down {
+  transform: rotatez(-90deg); }
+
+.show-animation {
+  animation-name: show; }
+
+.hide-animation {
+  animation-name: show;
+  animation-direction: reverse; }
+
+.arrow-down-animation {
+  animation-name: arrow-down; }
+
+.arrow-left-animation {
+  animation-name: arrow-down;
+  animation-direction: reverse; }
+
+@keyframes show {
+  0% {
+    max-height: 0px;
+    opacity: 0;
+    visibility: hidden; }
+  30% {
+    max-height: 500px;
+    opacity: 0;
+    visibility: hidden; }
+  100% {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible; } }
+@keyframes arrow-down {
+  from {
+    transform: rotatez(0deg); }
+  to {
+    transform: rotatez(-90deg); } }
 @media screen and (max-width: 767px) {
   .sidebar-container {
     display: none; }
