@@ -1,3 +1,8 @@
+%animation-properties {
+	animation-duration: 0.5s;
+	transition-timing-function: ease;
+}
+
 .sidebar-container {
 	width: 220px;
 	background-color: steelblue;
@@ -88,6 +93,7 @@
 .welcome-message {
 	font-size: 1.6em;
 	height: 30px;
+	line-height: 1.3;
 }
 
 .desktop-view {
@@ -98,29 +104,37 @@
 	display: none;
 }
 
-.visible {
-	max-height: 500px;
-	opacity: 1;
-	visibility: visible;
-}
-
 .invisible {
 	max-height: 0px;
 	opacity: 0;
 	visibility: hidden;
+	border: 0 !important;
+}
+
+.arrow-down {
+	transform: rotatez(-90deg);
 }
 
 .show-animation {
+	@extend %animation-properties;
 	animation-name: show;
-	animation-duration: 0.5s;
-	transition-timing-function: ease;
 }
 
 .hide-animation {
+	@extend %animation-properties;
 	animation-name: show;
 	animation-direction: reverse;
-	animation-duration: 0.5s;
-	transition-timing-function: ease;
+}
+
+.arrow-down-animation {
+	@extend %animation-properties;
+	animation-name: arrow-down;
+}
+
+.arrow-left-animation {
+	@extend %animation-properties;
+	animation-name: arrow-down;
+	animation-direction: reverse;
 }
 
 //animation
@@ -139,6 +153,15 @@
 		max-height: 500px;
 		opacity: 1;
 		visibility: visible;
+	}
+}
+
+@keyframes arrow-down {
+	from {
+		transform: rotatez(0deg);
+	}
+	to {
+		transform: rotatez(-90deg);
 	}
 }
 
