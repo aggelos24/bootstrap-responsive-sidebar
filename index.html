@@ -18,8 +18,6 @@
 														//when animation ends, remove animation class
 			}
 			collapsedMenuElement[0].classList.remove('invisible');					//remove invisible class
-			collapsedMenuElement[0].classList.add('visible');					//add visible class, to stay visible after animation ends
-			
 		}
 		else {
 			if (resizeEvent == false) {								//if function is called from resive event
@@ -28,7 +26,6 @@
 														//when animation ends, remove animation class
 			}
 			collapsedMenu = false;									//reset collapsed menu
-			collapsedMenuElement[0].classList.remove('visible');					//remove visible class
 			collapsedMenuElement[0].classList.add('invisible');					//add invisible class, to stay invisible after animation ends
 		}
 	}
@@ -69,16 +66,20 @@
 			setTimeout(() => submenuItems.forEach(element => element.classList.remove('show-animation')), 500);
 														//when animation ends, remove animation class (applies to all submenu items)
 			submenuItems.forEach(element => element.classList.remove('invisible'));			//remove invisible class (applies to all submenu items)
-			submenuItems.forEach(element => element.classList.add('visible'));			//add visible class, to stay visible after animation ends (applies to all submenu items)
-			document.getElementById('arrow').innerHTML = "↓";					//show arrow down
+			document.getElementById('arrow').classList.add('arrow-down-animation');			//start animation
+			setTimeout(() => document.getElementById('arrow').classList.remove('arrow-down-animation'), 500);
+														//when animation ends, remove animation class
+			document.getElementById('arrow').classList.add('arrow-down');				//add arrow-down class, to stay in that state
 		}
 		else {
 			submenuItems.forEach(element => element.classList.add('hide-animation'));		//start animation (applies to all submenu items)
 			setTimeout(() => submenuItems.forEach(element => element.classList.remove('hide-animation')), 500);
 														//when animation ends, remove animation class (applies to all submenu items)
-			submenuItems.forEach(element => element.classList.remove('visible'));			//remove visible class (applies to all submenu items)
 			submenuItems.forEach(element => element.classList.add('invisible'));			//add invisible class, to stay invisible after animation ends (applies to all submenu items)
-			document.getElementById('arrow').innerHTML = "←";					//show arrow left
+			document.getElementById('arrow').classList.add('arrow-left-animation');			//start animation
+			setTimeout(() => document.getElementById('arrow').classList.remove('arrow-left-animation'), 500);
+														//when animation ends, remove animation class
+			document.getElementById('arrow').classList.remove('arrow-down');			//remove arrow-down class
 		}
 	}
 
