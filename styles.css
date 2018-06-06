@@ -3131,7 +3131,8 @@ a.text-dark:hover, a.text-dark:focus {
 .logout-icon {
   background-image: url("assets/logout.png");
   width: 30px;
-  height: 30px; }
+  height: 30px;
+  cursor: pointer; }
 
 .collapsed-link {
   color: #808080;
