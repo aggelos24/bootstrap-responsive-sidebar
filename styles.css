@@ -3134,13 +3134,17 @@ a.text-dark:hover, a.text-dark:focus {
   height: 30px; }
 
 .collapsed-link {
-  color: #808080; }
+  color: #808080;
+  padding: 5px 16px; }
 
 .collapsed-link:hover {
   color: #3098d5; }
 
+.submenu > .collapsed-link {
+  padding: 3px 20px; }
+
 .active > .collapsed-link, .active > .collapsed-link:hover {
-  color: black; }
+  color: #404040; }
 
 .welcome-message {
   font-size: 1.6em;
@@ -3160,7 +3164,7 @@ a.text-dark:hover, a.text-dark:focus {
   border: 0 !important; }
 
 .arrow-down {
-  transform: rotatez(-90deg); }
+  transform: rotateZ(-90deg); }
 
 .show-animation {
   animation-name: show; }
@@ -3191,9 +3195,9 @@ a.text-dark:hover, a.text-dark:focus {
     visibility: visible; } }
 @keyframes arrow-down {
   from {
-    transform: rotatez(0deg); }
+    transform: rotateZ(0deg); }
   to {
-    transform: rotatez(-90deg); } }
+    transform: rotateZ(-90deg); } }
 @media screen and (max-width: 767px) {
   .sidebar-container {
     display: none; }
@@ -3203,6 +3207,9 @@ a.text-dark:hover, a.text-dark:focus {
 
   .top-navbar-container {
     height: 100%; }
+
+  .welcome-and-toggler-container {
+    margin-bottom: 5px; }
 
   .nav {
     letter-spacing: 0; }
