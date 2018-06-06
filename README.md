@@ -1,6 +1,6 @@
 # Responsive sidebar made with bootstrap css and javascript
 
-If you just want to test this, you only need `index.html`, `styles.css` and `assets` folder. Open `index.html` in browser.
+If you just want to try it, click [here](https://aggelos24.github.io/bootstrap-responsive-sidebar/).
 
 If you want to build it yourself, follow the instructions bellow:
 * Download project.
