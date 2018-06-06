@@ -80,14 +80,19 @@
 
 .collapsed-link {
 	color: $dark-grey;
+	padding: 5px 16px;
 }
 
 .collapsed-link:hover {
 	color: $blue;
 }
 
+.submenu > .collapsed-link {
+	padding: 3px 20px;
+}
+
 .active > .collapsed-link, .active > .collapsed-link:hover {
-	color: black;
+	color: $almost-black;
 }
 
 .welcome-message {
@@ -112,7 +117,7 @@
 }
 
 .arrow-down {
-	transform: rotatez(-90deg);
+	transform: rotateZ(-90deg);
 }
 
 .show-animation {
@@ -137,7 +142,7 @@
 	animation-direction: reverse;
 }
 
-//animation
+//animations
 @keyframes show {
 	0% {
 		max-height: 0px;
@@ -158,10 +163,10 @@
 
 @keyframes arrow-down {
 	from {
-		transform: rotatez(0deg);
+		transform: rotateZ(0deg);
 	}
 	to {
-		transform: rotatez(-90deg);
+		transform: rotateZ(-90deg);
 	}
 }
 
@@ -177,6 +182,10 @@
 
 	.top-navbar-container {
 		height: 100%;
+	}
+	
+	.welcome-and-toggler-container {
+		margin-bottom: 5px;
 	}
 
 	.nav {
