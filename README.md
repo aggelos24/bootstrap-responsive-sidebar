@@ -1,4 +1,4 @@
-# Responsive sidebar made with bootstrap css and javascript
+# Responsive sidebar made with Bootstrap css and Javascript
 
 If you just want to try it, click [here](https://aggelos24.github.io/bootstrap-responsive-sidebar/).
 
